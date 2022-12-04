@@ -50,10 +50,10 @@ The firmware of the module has been flashed by default (the default firmware is 
 You should know how to use a klipper host to config and compile firmware for MCU, if not, please refer to http://www.klipper3d.org/Installation.html?h=menuconfig#building-and-flashing-the-micro-controller
 
 After run "make menuconfig":  
-** THR 36/42 Configuration (connect with Can) **   
+**THR 36/42 Configuration (connect with Can) **   
 ![config_can](https://user-images.githubusercontent.com/12979070/205478259-2dd5f8c5-26bf-440f-84d8-aec1adb23618.png)
 
-** THR 36/42 Configuration (connect with USB) **  
+**THR 36/42 Configuration (connect with USB) **  
 ![config_usb](https://user-images.githubusercontent.com/12979070/205478264-b9398b7a-d880-4b49-a26b-bfafcadf9fa4.png)
 
 Then run "make" to generate the "klipper.uf2" on the direction of "~/klipper/out/"
@@ -63,18 +63,31 @@ Press and hold the boot button on the MKS THR36/42 board, connect to the compute
 ![udisk](https://user-images.githubusercontent.com/12979070/205478314-b7905623-3d5c-45bb-b456-214ceef92a45.png)
 
 ## Configure printer configuration
-We have uploaded an indenpent "MKS_THR.cfg" [here]() for  to communication(USB communication)
+We have uploaded an indenpent "MKS_THR.cfg" [here](https://github.com/makerbase-mks/MKS-THR36-THR42-UTC/blob/main/MKS_THR.cfg), which has configuared the hardware infomation of MKS THR36/42. You just need to copy it to the same direction as your "printer.cfg", check the "serial" section on the "[mcu MKS_THR]" node, and include the "MKS_THR.cfg" on your "printer.cfg" file.  
+![printer cfg](https://user-images.githubusercontent.com/12979070/205478993-5ebc6275-ddb4-4ae1-918b-bba750cc6aef.png)
 
-## Configuration to communication(CANBUS communication)
- Enter the command sudo nano /etc/network/interfaces.d/can0 in ssh, copy the following code into the created file, then press ctrl+S to save, and ctrl+X to exit.
-(Reference link:https://www.klipper3d.org/CANBUS.html?h=canbus)
-auto can0 
-iface can0 can static 
-bitrate 250000 
-up ifconfig $IFACE txqueuelen 128
+### USB communication
+- Keep the usb connection is ok between the MKS THR36/42 and your Klipper host board, and power on.
+- SSH login to your Klipper console and run
+> ls /dev/serial/by-id/*   
 
-3.Configure printer.cfg 
-1.Add [include MKS_THR.cfg] to the printer.cfg file 
+Copy the return string(if not return, please check the connection and reboot) to rewrite the "serial" section on the "[mcu MKS_THR]" node of "MKS_THR.cfg" file. For example:  
+![usb_configu](https://user-images.githubusercontent.com/12979070/205479233-397f18d3-aaab-43bb-8d17-23193c80ff52.png)  
+
+### CANBUS communication
+- Keep the CAN connection is ok between the MKS THR36/42 and your Klipper host board, and power on.
+- Check whether you have the the file "/etc/network/interfaces.d/can0", if not, create it:
+> sudo nano /etc/network/interfaces.d/can
+- Edit the "/etc/network/interfaces.d/can" like below(Reference link:https://www.klipper3d.org/CANBUS.html?h=canbus):
+> auto can0  
+> iface can0 can static  
+> bitrate 250000  
+> up ifconfig $IFACE txqueuelen 128  
+- Press ctrl+S to save, and ctrl+X to exit
+- Run the command to get the uuid of CAN interface:  
+> ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0  
+- Copy the return string(if not return, please check the connection and reboot) to rewrite the "serial" section on the "[mcu MKS_THR]" node of "MKS_THR.cfg" file. For example:  
+![can-configu](https://user-images.githubusercontent.com/12979070/205479488-813104f5-040b-4f1e-8655-36f1c22df56c.png)
 
 
 # MKS UTC
@@ -82,6 +95,12 @@ MKS UTC is an USB to CAN communication module, which is used for communication b
 
 ## MKS UTC Wiring diagram
 ![utc](https://user-images.githubusercontent.com/12979070/205477726-b6ac7069-92d7-4b6c-80e6-ab29e2f077f5.jpg)
+
+## MKS UTC firmware update
+**The firmware of the module has been flashed by default, commonly, it is no need to update the firmware.**
+- Download the [update package](https://github.com/makerbase-mks/MKS-THR36-THR42-UTC/blob/main/MKS%20UTC%20DFU-Upload.rar)  
+- Press and hold the boot button on the MKS UTC board, connect it to the computer with a TypeC cable, run the DFU-upload-firmware.bat(On windows OS) to update the firmware(You can replace with your own klipper.bin firmware if you want)  
+![utc_update](https://user-images.githubusercontent.com/12979070/205479861-236ce417-46a5-480d-a280-3fad873f04d6.png)
 
 # More Reference
 ## Connection with motherboard (MKS Monster8、MKS PI,Can communication)
