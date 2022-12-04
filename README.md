@@ -1,3 +1,6 @@
+# How to buy
+[Aliexpress](https://www.aliexpress.com/item/1005004984153336.html?spm=a2g0o.productlist.0.0.69a5374bzosQOq&algo_pvid=44ce7969-35dd-47fc-be95-741efc127d29&algo_exp_id=44ce7969-35dd-47fc-be95-741efc127d29-0&pdp_ext_f=%7B%22sku_id%22%3A%2212000031238721549%22%7D&pdp_npi=2%40dis%21USD%2118.99%2117.09%21%21%21%21%21%402101d91e16701406443514989e896f%2112000031238721549%21sea&curPageLogUid=2av3JFSlCXPO&gatewayAdapt=4itemAdapt)
+
 # MKS THR36&THR42
 ## Overview
 MKS THR36&THR42 is two tool header modules that can simplify the wiring between 3D printing motherboard and extrusion related parts(You can choose to use usb cable or usb-to-Can to connect). THR36 is for NEMA14 stepper, while THR42 is for NEMA17 stepper. Both the modules integrate TMC2209 driver(for E-axis) and ADXL345 sensor, support interfaces for BLtouch, neopixel, three controllable fans, X, Y, Z enstops. What is more, they support USB or Can bus to communicate with SOC, which makes the wiring of the printer easier and allows users to reflect the superior performance of the klipper firmware.
@@ -107,5 +110,15 @@ MKS UTC is an USB to CAN communication module, which is used for communication b
 
 
 
+## Note
+- Thank you for using MKS products. If you have any questions during use, please contact us in time and we will work with you to solve it.
+- For more product dynamic information and tutorial materials, you can always follow MKS's Facebook/Twitter/Discord/Reddit/Youtube and Github. Thank you!
+- MKS Github: https://github.com/makerbase-mks  
+- MKS Facebook: https://www.facebook.com/Makerbase.mks/  
+- MKS Twitter: https://twitter.com/home?lang=en  
+- MKS Discord: https://discord.gg/4uar57NEyU
+- MKS Reddit: https://www.reddit.com/user/MAKERBASE-TEAM/ 
+
+![mks_link](https://user-images.githubusercontent.com/12979070/149611647-1819afd8-0241-42ec-8817-41a290827f0a.png)
 
                                
