@@ -50,10 +50,10 @@ The firmware of the module has been flashed by default (the default firmware is 
 You should know how to use a klipper host to config and compile firmware for MCU, if not, please refer to http://www.klipper3d.org/Installation.html?h=menuconfig#building-and-flashing-the-micro-controller
 
 After run "make menuconfig":  
-**THR 36/42 Configuration (connect with Can) **   
+**THR 36/42 Configuration (connect with Can)**   
 ![config_can](https://user-images.githubusercontent.com/12979070/205478259-2dd5f8c5-26bf-440f-84d8-aec1adb23618.png)
 
-**THR 36/42 Configuration (connect with USB) **  
+**THR 36/42 Configuration (connect with USB)**  
 ![config_usb](https://user-images.githubusercontent.com/12979070/205478264-b9398b7a-d880-4b49-a26b-bfafcadf9fa4.png)
 
 Then run "make" to generate the "klipper.uf2" on the direction of "~/klipper/out/"
@@ -98,16 +98,13 @@ MKS UTC is an USB to CAN communication module, which is used for communication b
 
 ## MKS UTC firmware update
 **The firmware of the module has been flashed by default, commonly, it is no need to update the firmware.**
+
 - Download the [update package](https://github.com/makerbase-mks/MKS-THR36-THR42-UTC/blob/main/MKS%20UTC%20DFU-Upload.rar)  
 - Press and hold the boot button on the MKS UTC board, connect it to the computer with a TypeC cable, run the DFU-upload-firmware.bat(On windows OS) to update the firmware(You can replace with your own klipper.bin firmware if you want)  
 ![utc_update](https://user-images.githubusercontent.com/12979070/205479861-236ce417-46a5-480d-a280-3fad873f04d6.png)
 
 # More Reference
-## Connection with motherboard (MKS Monster8、MKS PI,Can communication)
-![monster8_with](https://user-images.githubusercontent.com/12979070/205477776-01c49927-f670-4f89-aa5e-530c13e2bb32.jpg)
 
-## Connection with motherboard (MKS SKIPR,USB communication)
-![skipr_usb](https://user-images.githubusercontent.com/12979070/205477817-13bf5808-f870-49af-8819-ad20a2bb9889.jpg)
 
 
 
